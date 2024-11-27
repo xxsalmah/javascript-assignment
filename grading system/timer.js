@@ -32,3 +32,6 @@ for (let i = 0; i < alist.length; i++) {
 }
 console.log(sum);
 
+let x = 7.9834;
+console.log(x.toFixed(1))
+
