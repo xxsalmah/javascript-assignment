@@ -134,9 +134,125 @@ else{
 
 const user1 = new User("John Doe", "Password");
 
-
+// console.log(user1.#password);
 
 user1.setPassword("pass1234");
 
 user1.authenticate("wrongpass");
 user1.authenticate("pass1234");
+
+//question 4 
+//inheritance
+
+class vehicle {
+    constructor(make,model,year){
+        this.make=make;
+        this.model=model;
+        this.year=year;
+    }
+    Describe(){
+        return `this is a ${this.year},${this.make},${this.model}`
+    }
+}
+
+class car extends vehicle {
+    constructor(make,model,year,fueltype){
+        super(make,model,year)
+        this.make=make;
+        this.model=model;
+        this.year=year;
+        this.fueltype=fueltype;
+    }
+    
+    Describe(){
+        return `this is a ${this.year},${this.make},${this.model} and runs on ${this.fueltype}`
+    }
+}
+
+const myCar= new car ("scuderia","ferrari",2025, "petrol")
+console.log(myCar.Describe())
+
+//polymorphism
+
+class Animal {
+    makeSound() {
+        return "Some generic animal sound";
+    }
+}
+
+
+class Dog extends Animal {
+    makeSound() {
+        return "Bark";
+    }
+}
+
+class Cat extends Animal {
+    makeSound() {
+        return "Meow";
+    }
+}
+
+const myDog = new Dog();
+const myCat = new Cat();
+
+console.log(myDog.makeSound()); 
+console.log(myCat.makeSound()); 
+
+//static
+class MathUtill {
+    
+  static calculateAreaOfCircle(radius) {
+    return Math.PI* radius;
+}
+}
+console.log(MathUtill.calculateAreaOfCircle(90))
+
+class UserCounter {
+    static userCount = 0;
+  
+    constructor(name) {
+      this.name = name;
+      UserCounter.userCount++; 
+    }
+  
+    static getUserCount() {
+      return `Total Users: ${UserCounter.userCount}`;
+    }
+  }
+  
+  
+  const uuser1 = new UserCounter("Alice");
+  const user2 = new UserCounter("Bob");
+  const user3 = new UserCounter("Charlie");
+  
+  console.log(UserCounter.getUserCount()); 
+
+  //advanced oop manipulation 
+
+  class Movie {
+    constructor(title, director, rating) {
+        this.title = title;
+        this.director = director;
+        this.rating = rating;
+    }
+
+    static filterByRating(movies, minRating) {
+        return movies.filter(movie => movie.rating >= minRating);
+    }
+}
+
+const movies = [
+    new Movie("Inception", "Christopher Nolan", 8.8),
+    new Movie("Titanic", "James Cameron", 7.8),
+    new Movie("The Dark Knight", "Christopher Nolan", 9.0),
+    new Movie("Avatar", "James Cameron", 7.9),
+    new Movie("Interstellar", "Christopher Nolan", 8.6),
+];
+
+const lowRatedMovies = Movie.filterByRating(movies, 7.0);
+
+console.log(lowRatedMovies);
+
+
+  
