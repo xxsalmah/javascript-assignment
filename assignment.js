@@ -134,7 +134,7 @@ else{
 
 const user1 = new User("John Doe", "Password");
 
-console.log(user1.#password);
+
 
 user1.setPassword("pass1234");
 
